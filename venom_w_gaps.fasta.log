@@ -1,0 +1,143 @@
+IQ-TREE version 3.0.1 for Linux x86 64-bit built Jul  9 2025
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    DESKTOP-PD8DKP8 (AVX2, FMA3, 7 GB RAM)
+Command: iqtree -s venom_w_gaps.fasta
+Seed:    875927 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Sun Feb 22 22:35:34 2026
+Kernel:  AVX+FMA - 1 threads (12 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 12 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file venom_w_gaps.fasta ... Fasta format detected
+Reading fasta file: done in 0.0103232 secs using 29.21% CPU
+NOTE: Change sequence name 'sebastes_ensifer_1_(reversed) Sebastes ensifer genome assembly, contig: S-ensifer_SEB-163_jcf7180001204773, whole genome shotgun sequence' -> sebastes_ensifer_1_(reversed)_Sebastes_ensifer_genome
+NOTE: Change sequence name 'sebastes_dallii_4_(reversed) Sebastes dallii genome assembly, contig: Sebastes_dalli_jcf7180003833216, whole genome shotgun sequence' -> sebastes_dallii_4_(reversed)_Sebastes_dallii_genome
+NOTE: Change sequence name 'sebastes_chlorosticus_4 Sebastes chlorostictus genome assembly, contig: Sebastes_chlorostictus_jcf7180001827729, whole genome shotgun sequence' -> sebastes_chlorosticus_4_Sebastes_chlorostictus_genome
+NOTE: Change sequence name 'sebastes_baramenuke_3_(reversed) Sebastes baramenuke genome assembly, contig: S_baramenuke_131606_jcf7180001115479, whole genome shotgun sequence' -> sebastes_baramenuke_3_(reversed)_Sebastes_baramenuke_genome
+NOTE: Change sequence name 'sebastes_diploproa_2_(reversed) Sebastes diploproa genome assembly, contig: S-diploproa_KUI2154_jcf7180001197378, whole genome shotgun sequence' -> sebastes_diploproa_2_(reversed)_Sebastes_diploproa_genome
+NOTE: Change sequence name 'sebastes_alutus_3_(reversed) Sebastes alutus genome assembly, contig: S-alutus_KUI2069_jcf7180001118068, whole genome shotgun sequence' -> sebastes_alutus_3_(reversed)_Sebastes_alutus_genome
+NOTE: Change sequence name 'sebastes_aurora_3(reversed) Sebastes aurora genome assembly, contig: S-aurora_KUI448_jcf7180001148964, whole genome shotgun sequence' -> sebastes_aurora_3(reversed)_Sebastes_aurora_genome
+NOTE: Change sequence name 'sebastes_caurinus_1 Sebastes caurinus genome assembly, contig: S-caurinus_SEB-191_jcf7180000948684, whole genome shotgun sequence' -> sebastes_caurinus_1_Sebastes_caurinus_genome
+NOTE: Change sequence name 'sebastes_baramenuke_1 Sebastes baramenuke genome assembly, contig: S_baramenuke_131606_jcf7180001115479, whole genome shotgun sequence' -> sebastes_baramenuke_1_Sebastes_baramenuke_genome
+NOTE: Change sequence name 'sebastes_dallii_2 Sebastes dallii genome assembly, contig: Sebastes_dalli_jcf7180003833216, whole genome shotgun sequence' -> sebastes_dallii_2_Sebastes_dallii_genome
+NOTE: Change sequence name 'sebastes_elongatus_1_(reversed) Sebastes elongatus genome assembly, contig: S-elongatus_SEB-146_jcf7180000943900, whole genome shotgun sequence' -> sebastes_elongatus_1_(reversed)_Sebastes_elongatus_genome
+NOTE: Change sequence name 'sebastes_crameri_3_(reversed) Sebastes crameri genome assembly, contig: S-crameri_SEB-4_jcf7180001426895, whole genome shotgun sequence' -> sebastes_crameri_3_(reversed)_Sebastes_crameri_genome
+NOTE: Change sequence name 'sebastes_nebulosus_3 Sebastes nebulosus genome assembly, contig: S_nebulosus_SEB-720_jcf7180000904549, whole genome shotgun sequence' -> sebastes_nebulosus_3_Sebastes_nebulosus_genome
+NOTE: Change sequence name 'sebastes_oculatus_1_(reversed) Sebastes oculatus genome assembly, contig: S-oculatus_ER03_jcf7180001280249, whole genome shotgun sequence' -> sebastes_oculatus_1_(reversed)_Sebastes_oculatus_genome
+NOTE: Change sequence name 'sebastes_serriceps_3_(reversed) Sebastes serriceps genome assembly, contig: S-serriceps_TREE_S68_jcf7180001091248, whole genome shotgun sequence' -> sebastes_serriceps_3_(reversed)_Sebastes_serriceps_genome
+NOTE: Change sequence name 'sebastes_reedi_3_(reversed) Sebastes reedi genome assembly, contig: Sebastes_reedi_jcf7180001628861, whole genome shotgun sequence' -> sebastes_reedi_3_(reversed)_Sebastes_reedi_genome
+NOTE: Change sequence name 'sebastes_reedi_1 Sebastes reedi genome assembly, contig: Sebastes_reedi_jcf7180001628861, whole genome shotgun sequence' -> sebastes_reedi_1_Sebastes_reedi_genome
+NOTE: Change sequence name 'sebastes_melanosticus_5_(reversed) Sebastes melanostomus genome assembly, contig: S-melanostomus_HO-5_jcf7180000979782, whole genome shotgun sequence' -> sebastes_melanosticus_5_(reversed)_Sebastes_melanostomus_genome
+NOTE: Change sequence name 'sebastes_oculatus_3 Sebastes oculatus genome assembly, contig: S-oculatus_ER03_jcf7180001280249, whole genome shotgun sequence' -> sebastes_oculatus_3_Sebastes_oculatus_genome
+NOTE: Change sequence name 'sebastes_melanosticus_3 Sebastes melanostomus genome assembly, contig: S-melanostomus_HO-5_jcf7180000979782, whole genome shotgun sequence' -> sebastes_melanosticus_3_Sebastes_melanostomus_genome
+NOTE: Change sequence name 'sebastes_babcocki_1 Sebastes babcocki genome assembly, contig: S-babcocki_HO-4_jcf7180000954059, whole genome shotgun sequence' -> sebastes_babcocki_1_Sebastes_babcocki_genome
+NOTE: Change sequence name 'sebastes_alutus_2_(reversed) Sebastes alutus genome assembly, contig: S-alutus_KUI2069_jcf7180001118068, whole genome shotgun sequence' -> sebastes_alutus_2_(reversed)_Sebastes_alutus_genome
+NOTE: Change sequence name 'sebastes_alutus_1 Sebastes alutus genome assembly, contig: S-alutus_KUI2069_jcf7180001079972, whole genome shotgun sequence' -> sebastes_alutus_1_Sebastes_alutus_genome
+NOTE: Change sequence name 'sebastes_aurora_2_(reversed) Sebastes aurora genome assembly, contig: S-aurora_KUI448_jcf7180001148964, whole genome shotgun sequence' -> sebastes_aurora_2_(reversed)_Sebastes_aurora_genome
+NOTE: Change sequence name 'sebastes_baramenuke_2 Sebastes baramenuke genome assembly, contig: S_baramenuke_131606_jcf7180001115479, whole genome shotgun sequence' -> sebastes_baramenuke_2_Sebastes_baramenuke_genome
+NOTE: Change sequence name 'sebastes_carnatus_2_(reversed) Sebastes carnatus genome assembly, contig: Sebastes_carnatus_jcf7180001094026, whole genome shotgun sequence' -> sebastes_carnatus_2_(reversed)_Sebastes_carnatus_genome
+NOTE: Change sequence name 'sebastes_constellatus_3_(reversed) Sebastes constellatus genome assembly, contig: Sebastes_constellatus_jcf7180001507129, whole genome shotgun sequence' -> sebastes_constellatus_3_(reversed)_Sebastes_constellatus_genome
+NOTE: Change sequence name 'sebastes_nebulosus_1_(reversed) Sebastes nebulosus genome assembly, contig: S_nebulosus_SEB-720_jcf7180000904549, whole genome shotgun sequence' -> sebastes_nebulosus_1_(reversed)_Sebastes_nebulosus_genome
+NOTE: Change sequence name 'sebastes_dallii_3 Sebastes dallii genome assembly, contig: Sebastes_dalli_jcf7180003833216, whole genome shotgun sequence' -> sebastes_dallii_3_Sebastes_dallii_genome
+NOTE: Change sequence name 'sebastes_diploproa_1 Sebastes diploproa genome assembly, contig: S-diploproa_KUI2154_jcf7180001197378, whole genome shotgun sequence' -> sebastes_diploproa_1_Sebastes_diploproa_genome
+NOTE: Change sequence name 'sebastes_crameri_2_(reversed) Sebastes crameri genome assembly, contig: S-crameri_SEB-4_jcf7180001426895, whole genome shotgun sequence' -> sebastes_crameri_2_(reversed)_Sebastes_crameri_genome
+NOTE: Change sequence name 'sebastes_melanosticus_4 Sebastes melanostomus genome assembly, contig: S-melanostomus_HO-5_jcf7180000979782, whole genome shotgun sequence' -> sebastes_melanosticus_4_Sebastes_melanostomus_genome
+NOTE: Change sequence name 'sebastes_elongatus_2_(reversed) Sebastes elongatus genome assembly, contig: S-elongatus_SEB-146_jcf7180000943900, whole genome shotgun sequence' -> sebastes_elongatus_2_(reversed)_Sebastes_elongatus_genome
+NOTE: Change sequence name 'sebastes_entomelas_5 Sebastes entomelas isolate AOP_CCGP_2022 SCAF_20, whole genome shotgun sequence' -> sebastes_entomelas_5_Sebastes_entomelas_isolate
+NOTE: Change sequence name 'sebastes_chlorosticus_5 Sebastes chlorostictus genome assembly, contig: Sebastes_chlorostictus_jcf7180001827729, whole genome shotgun sequence' -> sebastes_chlorosticus_5_Sebastes_chlorostictus_genome
+NOTE: Change sequence name 'sebastes_reedi_2_(reversed) Sebastes reedi genome assembly, contig: Sebastes_reedi_jcf7180001628861, whole genome shotgun sequence' -> sebastes_reedi_2_(reversed)_Sebastes_reedi_genome
+NOTE: Change sequence name 'sebastes_baramenuke_4_(reversed) Sebastes baramenuke genome assembly, contig: S_baramenuke_131606_jcf7180001133266, whole genome shotgun sequence' -> sebastes_baramenuke_4_(reversed)_Sebastes_baramenuke_genome
+NOTE: Change sequence name 'sebastes_chlorosticus_3_(reversed) Sebastes chlorostictus genome assembly, contig: Sebastes_chlorostictus_jcf7180001828815, whole genome shotgun sequence' -> sebastes_chlorosticus_3_(reversed)_Sebastes_chlorostictus_genome
+NOTE: Change sequence name 'sebastes_diploproa_3 Sebastes diploproa genome assembly, contig: S-diploproa_KUI2154_jcf7180001197378, whole genome shotgun sequence' -> sebastes_diploproa_3_Sebastes_diploproa_genome
+NOTE: Change sequence name 'sebastes_carnatus_1_(reversed) Sebastes carnatus genome assembly, contig: Sebastes_carnatus_jcf7180001093406, whole genome shotgun sequence' -> sebastes_carnatus_1_(reversed)_Sebastes_carnatus_genome
+NOTE: Change sequence name 'sebastes_elongatus_3_(reversed) Sebastes elongatus genome assembly, contig: S-elongatus_SEB-146_jcf7180000999506, whole genome shotgun sequence' -> sebastes_elongatus_3_(reversed)_Sebastes_elongatus_genome
+NOTE: Change sequence name 'sebastes_constellatus_2 Sebastes constellatus genome assembly, contig: Sebastes_constellatus_jcf7180001510983, whole genome shotgun sequence' -> sebastes_constellatus_2_Sebastes_constellatus_genome
+NOTE: Change sequence name 'sebastes_aurora_1 Sebastes aurora genome assembly, contig: S-aurora_KUI448_jcf7180001203293, whole genome shotgun sequence' -> sebastes_aurora_1_Sebastes_aurora_genome
+NOTE: Change sequence name 'sebastes_babcocki_2 Sebastes babcocki genome assembly, contig: S-babcocki_HO-4_jcf7180000956124, whole genome shotgun sequence' -> sebastes_babcocki_2_Sebastes_babcocki_genome
+NOTE: Change sequence name 'sebastes_babcocki_2 Sebastes babcocki genome assembly, contig: S-babcocki_HO-4_jcf7180000956124, whole genome shotgun sequence' -> sebastes_babcocki_2_Sebastes_babcocki_genome
+NOTE: Change sequence name 'sebastes_crameri_1_(reversed) Sebastes crameri genome assembly, contig: S-crameri_SEB-4_jcf7180001426895, whole genome shotgun sequence' -> sebastes_crameri_1_(reversed)_Sebastes_crameri_genome
+NOTE: Change sequence name 'sebastes_ensifer_2_(reversed) Sebastes ensifer genome assembly, contig: S-ensifer_SEB-163_jcf7180001202646, whole genome shotgun sequence' -> sebastes_ensifer_2_(reversed)_Sebastes_ensifer_genome
+NOTE: Change sequence name 'sebastes_entomelas_3 Sebastes entomelas isolate AOP_CCGP_2022 SCAF_20, whole genome shotgun sequence' -> sebastes_entomelas_3_Sebastes_entomelas_isolate
+NOTE: Change sequence name 'sebastes_melanosticus_2_(reversed) Sebastes melanostomus genome assembly, contig: S-melanostomus_HO-5_jcf7180000984799, whole genome shotgun sequence' -> sebastes_melanosticus_2_(reversed)_Sebastes_melanostomus_genome
+NOTE: Change sequence name 'sebastes_entomelas_7 Sebastes entomelas isolate AOP_CCGP_2022 SCAF_20, whole genome shotgun sequence' -> sebastes_entomelas_7_Sebastes_entomelas_isolate
+NOTE: Change sequence name 'sebastes_nebulosus_2_(reversed) Sebastes nebulosus genome assembly, contig: S_nebulosus_SEB-720_jcf7180000904549, whole genome shotgun sequence' -> sebastes_nebulosus_2_(reversed)_Sebastes_nebulosus_genome
+NOTE: Change sequence name 'sebastes_nebulosus_4 Sebastes nebulosus genome assembly, contig: S_nebulosus_SEB-720_jcf7180000951235, whole genome shotgun sequence' -> sebastes_nebulosus_4_Sebastes_nebulosus_genome
+NOTE: Change sequence name 'sebastes_reedi_4_(reversed) Sebastes reedi genome assembly, contig: Sebastes_reedi_jcf7180001632600, whole genome shotgun sequence' -> sebastes_reedi_4_(reversed)_Sebastes_reedi_genome
+NOTE: Change sequence name 'sebastes_oculatus_4_(reversed) Sebastes oculatus genome assembly, contig: S-oculatus_ER03_jcf7180001280249, whole genome shotgun sequence' -> sebastes_oculatus_4_(reversed)_Sebastes_oculatus_genome
+NOTE: Change sequence name 'sebastes_serriceps_4 Sebastes serriceps genome assembly, contig: S-serriceps_TREE_S68_jcf7180001091248, whole genome shotgun sequence' -> sebastes_serriceps_4_Sebastes_serriceps_genome
+NOTE: Change sequence name 'sebastes_serriceps_2 Sebastes serriceps genome assembly, contig: S-serriceps_TREE_S68_jcf7180001086670, whole genome shotgun sequence' -> sebastes_serriceps_2_Sebastes_serriceps_genome
+NOTE: Change sequence name 'sebastes_oculatus_2_(reversed) Sebastes oculatus genome assembly, contig: S-oculatus_ER03_jcf7180001280249, whole genome shotgun sequence' -> sebastes_oculatus_2_(reversed)_Sebastes_oculatus_genome
+NOTE: Change sequence name 'sebastes_reedi_5_(reversed) Sebastes reedi genome assembly, contig: Sebastes_reedi_jcf7180001628861, whole genome shotgun sequence' -> sebastes_reedi_5_(reversed)_Sebastes_reedi_genome
+NOTE: Change sequence name 'sebastes_chlorosticus_1 Sebastes chlorostictus genome assembly, contig: Sebastes_chlorostictus_jcf7180001832335, whole genome shotgun sequence' -> sebastes_chlorosticus_1_Sebastes_chlorostictus_genome
+NOTE: Change sequence name 'sebastes_caurinus_3 Sebastes caurinus genome assembly, contig: S-caurinus_SEB-191_jcf7180000942828, whole genome shotgun sequence' -> sebastes_caurinus_3_Sebastes_caurinus_genome
+NOTE: Change sequence name 'sebastes_alutus_4 Sebastes alutus genome assembly, contig: S-alutus_KUI2069_jcf7180001149181, whole genome shotgun sequence' -> sebastes_alutus_4_Sebastes_alutus_genome
+NOTE: Change sequence name 'sebastes_melantosticus_6 Sebastes melanostomus genome assembly, contig: S-melanostomus_HO-5_jcf7180001030373, whole genome shotgun sequence' -> sebastes_melantosticus_6_Sebastes_melanostomus_genome
+NOTE: Change sequence name 'sebastes_serriceps_7_(reversed) Sebastes serriceps genome assembly, contig: S-serriceps_TREE_S68_jcf7180001092011, whole genome shotgun sequence' -> sebastes_serriceps_7_(reversed)_Sebastes_serriceps_genome
+NOTE: Change sequence name 'sebastes_dallii_6 Sebastes dallii genome assembly, contig: Sebastes_dalli_jcf7180003833629, whole genome shotgun sequence' -> sebastes_dallii_6_Sebastes_dallii_genome
+NOTE: Change sequence name 'sebastes_nebulosus_6 Sebastes nebulosus genome assembly, contig: S_nebulosus_SEB-720_jcf7180000949403, whole genome shotgun sequence' -> sebastes_nebulosus_6_Sebastes_nebulosus_genome
+NOTE: Change sequence name 'sebastes_oculatus_5_(reversed) Sebastes oculatus genome assembly, contig: S-oculatus_ER03_jcf7180001276148, whole genome shotgun sequence' -> sebastes_oculatus_5_(reversed)_Sebastes_oculatus_genome
+NOTE: Change sequence name 'sebastes_nebulosus_5 Sebastes nebulosus genome assembly, contig: S_nebulosus_SEB-720_jcf7180000903083, whole genome shotgun sequence' -> sebastes_nebulosus_5_Sebastes_nebulosus_genome
+NOTE: Change sequence name 'sebastes_melantosticus_6 Sebastes melanostomus genome assembly, contig: S-melanostomus_HO-5_jcf7180001030373, whole genome shotgun sequence' -> sebastes_melantosticus_6_Sebastes_melanostomus_genome
+NOTE: Change sequence name 'sebastes_caurinus_2 Sebastes caurinus genome assembly, contig: S-caurinus_SEB-191_jcf7180000946489, whole genome shotgun sequence' -> sebastes_caurinus_2_Sebastes_caurinus_genome
+NOTE: Change sequence name 'sebastes_ensifer_3_(reversed) Sebastes ensifer genome assembly, contig: S-ensifer_SEB-163_jcf7180001205605, whole genome shotgun sequence' -> sebastes_ensifer_3_(reversed)_Sebastes_ensifer_genome
+NOTE: Change sequence name 'sebastes_dallii_1 Sebastes dallii genome assembly, contig: Sebastes_dalli_jcf7180003831989, whole genome shotgun sequence' -> sebastes_dallii_1_Sebastes_dallii_genome
+NOTE: Change sequence name 'sebastes_diploproa_4_(reversed) Sebastes diploproa genome assembly, contig: S-diploproa_KUI2154_jcf7180001193182, whole genome shotgun sequence' -> sebastes_diploproa_4_(reversed)_Sebastes_diploproa_genome
+NOTE: Change sequence name 'sebastes_serriceps_1_(reversed) Sebastes serriceps genome assembly, contig: S-serriceps_TREE_S68_jcf7180001086670, whole genome shotgun sequence' -> sebastes_serriceps_1_(reversed)_Sebastes_serriceps_genome
+NOTE: Change sequence name 'sebastes_melanosticus_1 Sebastes melanostomus genome assembly, contig: S-melanostomus_HO-5_jcf7180000984799, whole genome shotgun sequence' -> sebastes_melanosticus_1_Sebastes_melanostomus_genome
+NOTE: Change sequence name 'sebastes_chlorosticus_2 Sebastes chlorostictus genome assembly, contig: Sebastes_chlorostictus_jcf7180001828815, whole genome shotgun sequence' -> sebastes_chlorosticus_2_Sebastes_chlorostictus_genome
+NOTE: Change sequence name 'sebastes_oculatus_6 Sebastes oculatus genome assembly, contig: S-oculatus_ER03_jcf7180001250224, whole genome shotgun sequence' -> sebastes_oculatus_6_Sebastes_oculatus_genome
+NOTE: Change sequence name 'sebastes_dallii_5 Sebastes dallii genome assembly, contig: Sebastes_dalli_jcf7180003835806, whole genome shotgun sequence' -> sebastes_dallii_5_Sebastes_dallii_genome
+NOTE: Change sequence name 'sebastes_reedi_3_(reversed) Sebastes reedi genome assembly, contig: Sebastes_reedi_jcf7180001629902, whole genome shotgun sequence' -> sebastes_reedi_3_(reversed)_Sebastes_reedi_genome
+NOTE: Change sequence name 'sebastes_entomelas_6 Sebastes entomelas isolate AOP_CCGP_2022 SCAF_20, whole genome shotgun sequence' -> sebastes_entomelas_6_Sebastes_entomelas_isolate
+Alignment most likely contains DNA/RNA sequences
+Constructing alignment: done in 0.00280412 secs using 51.89% CPU
+Alignment has 96 sequences with 2307 columns, 1574 distinct patterns
+1443 parsimony-informative, 220 singleton sites, 644 constant sites
+WARNING: Some sequence names are changed as follows:
+sebastes_ensifer_1_(reversed)_Sebastes_ensifer_genome -> sebastes_ensifer_1__reversed__Sebastes_ensifer_genome
+sebastes_dallii_4_(reversed)_Sebastes_dallii_genome -> sebastes_dallii_4__reversed__Sebastes_dallii_genome
+sebastes_baramenuke_3_(reversed)_Sebastes_baramenuke_genome -> sebastes_baramenuke_3__reversed__Sebastes_baramenuke_genome
+sebastes_diploproa_2_(reversed)_Sebastes_diploproa_genome -> sebastes_diploproa_2__reversed__Sebastes_diploproa_genome
+sebastes_alutus_3_(reversed)_Sebastes_alutus_genome -> sebastes_alutus_3__reversed__Sebastes_alutus_genome
+sebastes_aurora_3(reversed)_Sebastes_aurora_genome -> sebastes_aurora_3_reversed__Sebastes_aurora_genome
+sebastes_elongatus_1_(reversed)_Sebastes_elongatus_genome -> sebastes_elongatus_1__reversed__Sebastes_elongatus_genome
+sebastes_crameri_3_(reversed)_Sebastes_crameri_genome -> sebastes_crameri_3__reversed__Sebastes_crameri_genome
+sebastes_oculatus_1_(reversed)_Sebastes_oculatus_genome -> sebastes_oculatus_1__reversed__Sebastes_oculatus_genome
+sebastes_serriceps_3_(reversed)_Sebastes_serriceps_genome -> sebastes_serriceps_3__reversed__Sebastes_serriceps_genome
+sebastes_reedi_3_(reversed)_Sebastes_reedi_genome -> sebastes_reedi_3__reversed__Sebastes_reedi_genome
+sebastes_melanosticus_5_(reversed)_Sebastes_melanostomus_genome -> sebastes_melanosticus_5__reversed__Sebastes_melanostomus_genome
+sebastes_alutus_2_(reversed)_Sebastes_alutus_genome -> sebastes_alutus_2__reversed__Sebastes_alutus_genome
+sebastes_aurora_2_(reversed)_Sebastes_aurora_genome -> sebastes_aurora_2__reversed__Sebastes_aurora_genome
+sebastes_carnatus_2_(reversed)_Sebastes_carnatus_genome -> sebastes_carnatus_2__reversed__Sebastes_carnatus_genome
+sebastes_constellatus_3_(reversed)_Sebastes_constellatus_genome -> sebastes_constellatus_3__reversed__Sebastes_constellatus_genome
+sebastes_nebulosus_1_(reversed)_Sebastes_nebulosus_genome -> sebastes_nebulosus_1__reversed__Sebastes_nebulosus_genome
+sebastes_crameri_2_(reversed)_Sebastes_crameri_genome -> sebastes_crameri_2__reversed__Sebastes_crameri_genome
+sebastes_elongatus_2_(reversed)_Sebastes_elongatus_genome -> sebastes_elongatus_2__reversed__Sebastes_elongatus_genome
+sebastes_reedi_2_(reversed)_Sebastes_reedi_genome -> sebastes_reedi_2__reversed__Sebastes_reedi_genome
+sebastes_baramenuke_4_(reversed)_Sebastes_baramenuke_genome -> sebastes_baramenuke_4__reversed__Sebastes_baramenuke_genome
+sebastes_chlorosticus_3_(reversed)_Sebastes_chlorostictus_genome -> sebastes_chlorosticus_3__reversed__Sebastes_chlorostictus_genome
+sebastes_carnatus_1_(reversed)_Sebastes_carnatus_genome -> sebastes_carnatus_1__reversed__Sebastes_carnatus_genome
+sebastes_elongatus_3_(reversed)_Sebastes_elongatus_genome -> sebastes_elongatus_3__reversed__Sebastes_elongatus_genome
+sebastes_crameri_1_(reversed)_Sebastes_crameri_genome -> sebastes_crameri_1__reversed__Sebastes_crameri_genome
+sebastes_ensifer_2_(reversed)_Sebastes_ensifer_genome -> sebastes_ensifer_2__reversed__Sebastes_ensifer_genome
+sebastes_melanosticus_2_(reversed)_Sebastes_melanostomus_genome -> sebastes_melanosticus_2__reversed__Sebastes_melanostomus_genome
+sebastes_nebulosus_2_(reversed)_Sebastes_nebulosus_genome -> sebastes_nebulosus_2__reversed__Sebastes_nebulosus_genome
+sebastes_reedi_4_(reversed)_Sebastes_reedi_genome -> sebastes_reedi_4__reversed__Sebastes_reedi_genome
+sebastes_oculatus_4_(reversed)_Sebastes_oculatus_genome -> sebastes_oculatus_4__reversed__Sebastes_oculatus_genome
+sebastes_oculatus_2_(reversed)_Sebastes_oculatus_genome -> sebastes_oculatus_2__reversed__Sebastes_oculatus_genome
+sebastes_reedi_5_(reversed)_Sebastes_reedi_genome -> sebastes_reedi_5__reversed__Sebastes_reedi_genome
+sebastes_serriceps_7_(reversed)_Sebastes_serriceps_genome -> sebastes_serriceps_7__reversed__Sebastes_serriceps_genome
+sebastes_oculatus_5_(reversed)_Sebastes_oculatus_genome -> sebastes_oculatus_5__reversed__Sebastes_oculatus_genome
+sebastes_ensifer_3_(reversed)_Sebastes_ensifer_genome -> sebastes_ensifer_3__reversed__Sebastes_ensifer_genome
+sebastes_diploproa_4_(reversed)_Sebastes_diploproa_genome -> sebastes_diploproa_4__reversed__Sebastes_diploproa_genome
+sebastes_serriceps_1_(reversed)_Sebastes_serriceps_genome -> sebastes_serriceps_1__reversed__Sebastes_serriceps_genome
+sebastes_reedi_3_(reversed)_Sebastes_reedi_genome -> sebastes_reedi_3__reversed__Sebastes_reedi_genome
+
+ERROR: Duplicated sequence name sebastes_babcocki_2_Sebastes_babcocki_genome
+ERROR: Duplicated sequence name sebastes_melantosticus_6_Sebastes_melanostomus_genome
+ERROR: Duplicated sequence name sebastes_reedi_3__reversed__Sebastes_reedi_genome
+ERROR: Please rename sequences listed above!
