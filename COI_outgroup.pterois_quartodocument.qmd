@@ -149,4 +149,94 @@ write.tree(coi_pterois1, file="coi_pterois1.nwk")
 ```
 
 # these both should have saved to the current directory
+# I tried to open the files in figtree and couldn't because duplicate taxon capensi??
 
+Here is code to remove taxon
+2. Specify the name(s) of the tip(s) you want to remove
+ To remove a single taxon, specify its name as a character vector
+taxon_to_remove <- "F"
+
+To remove multiple taxa, use a vector of names
+taxa_to_remove <- c("A", "B", "F")
+
+# first view the tip labels
+```{r}
+# View the original tree structure (optional)
+
+coi_pterois$tip.label
+```
+
+# This file has a lot of duplicates this might not be the file with one of each. Look for that file and start this process again
+
+The new file is called "C:\witteLab\phylogeny_Stonustoxin\COI_limited_witout_reedi2.treefile"
+# confirm directory
+```{r}
+dir()
+```
+
+
+```{r}
+coi_pterois2 <- read.tree("COI_limited_witout_reedi2.treefile")
+
+```
+
+
+# confirm
+
+```{r}
+plot(coi_pterois2)
+```
+
+#make a vector for names
+
+```{r}
+COI_label_pterois2 <- read.FASTA("COI_limited_witout_reedi.fasta")
+```
+
+# confirm
+```{r}
+head(COI_label_pterois2)
+```
+
+# Name the label vector
+
+```{r}
+COI_label4 <- names(COI_label_pterois2)
+```
+
+confirm
+```{r}
+head(COI_label4)
+```
+
+
+# mutate
+
+```{r}
+COI_label4 <- names(COI_label_pterois2)
+mapping_df3 <- data.frame(
+  full_label = COI_label4
+) %>% 
+  mutate(
+    acession = word(full_label,1),
+    genus = word(full_label, 2),
+    species = word(full_label, 3),
+    genus_species = paste(genus,  species)
+  )
+  
+
+```
+i feel like im missing code to put it on the tree
+tree_labels_df <- data.frame(accession = tree_6$tip.label) # match to tree tip labels
+tree_labels_df <- left_join(tree_labels_df, mapping_df, by = "accession")
+#replace tip labels
+tree_6$tip.label <- tree_labels_df$genus_species
+plot(tree_6, cex = 0.6)
+plot(tree_6, cex = 0.5)
+
+# view plot 
+
+```{r}
+
+```
+# I might have to scratch this because I do not have time to keep messing with this
