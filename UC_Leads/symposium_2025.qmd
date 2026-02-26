@@ -311,3 +311,66 @@ Be carefull rotate is now masked in ape remove ggtree later
 ```{r}
 write.tree(tree_sntx_1, file ="tree_sntx_1.tree.file")
 ```
+
+# Lets Goooooooooooooo!
+
+## import COI complete and change tip labels move to tree.file
+
+coi_A6 is going to be the tree from data processed today
+
+```{r}
+dir()
+tree_coi_A6 <- read.tree("COI_complete.fasta.treefile")
+# view tree
+plot(tree_coi_A6)
+# load fasta for names
+label_coi_6A <- read.fasta("COI_complete.fasta")
+head(label_coi_6A)
+str(label_coi_6A) # check were good
+```
+
+# create a tibble with the correct names by extracting and mutating 
+
+```{r}
+fasta_obj.coi6A <- read.FASTA("COI_complete.fasta") # Im not really sure how this step is differnt but I've done a lot of over writing because I didn't want to make an new name for a data frame I'm gonna manipulate so Im just gonna do it
+head(fasta_obj.coi6A)
+```
+
+next
+
+```{r}
+fasta_desc.coi6A <- names(fasta_obj.coi6A)
+head(fasta_desc.coi6A)
+```
+
+```{r}
+mapping_df.coi6A <- data.frame(
+  full_label = fasta_desc.coi6A) %>% 
+     mutate(
+    accession = word(full_label, 1),
+     genus = word(full_label,2),
+     species = word(full_label, 3),
+     genus_species = paste(genus,species)
+ )
+ # check data frame 
+head(mapping_df.coi6A)
+ 
+ 
+```
+
+```{r}
+mapping_df.coi6A$accession <- str_remove(mapping_df.coi6A$accession, "_.*$")
+ View(mapping_df.coi6A)
+tree_coi_A6$tip.label <- mapping_df.coi6A$genus_species[
+  match(tree_coi_A6$tip.label, mapping_df.coi6A$accession)
+ ]
+plot(tree_coi_A6)
+```
+
+fasta_obj.coi \<- read.FASTA("COI_partial.fasta") \# Im not really sure how this step is differnt but I've done a lot of over writing because I didn't want to make an new name for a data frame I'm gonna manipulate so Im just gonna do it head(fasta_obj.coi)
+
+# Make tree.file
+
+```{r}
+write.tree(tree_coi_A6, file ="tree_coi_A6.tree.file")
+```
