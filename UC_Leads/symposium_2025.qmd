@@ -1,0 +1,25 @@
+---
+title: "Script for poster trees"
+author: "Ambrosio Rivera"
+format: html
+editor: visual
+---
+
+## UC LEADS symposium February 2025
+
+Hopefully this is the last place I am writing code. Keep it clean
+
+## Load libraries
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
