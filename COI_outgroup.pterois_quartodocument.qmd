@@ -1,0 +1,152 @@
+---
+title: "Phylogeny project"
+author: "ambrosio"
+format: html
+editor: visual
+---
+
+## load library
+```{r}
+
+library(ape)
+library(stringr)
+library(dplyr)
+```
+# confirm directory
+```{r}
+dir()
+```
+
+
+cd /path/to/your/git-repo/
+
+# Call .treefile since the directory is c/witteLab/phylogeny_Stontustoxin we already have access to allthese files above and can call the file directly
+```{r}
+coi_pterois <- read.tree("COI_outgroup.pterois.treefile")
+```
+
+# view tree
+```{r}
+plot(coi_pterois)
+```
+
+
+## Make a file for the names to match the accession # to the names then re label the tree
+
+This is the code
+fasta_names <- names(COI_label)
+mapping_df <- data.frame(
+full_label = fasta_names
+) %>%
+mutate(
+accession = word(full_label, 1),
+genus = word(full_label, 2),
+species = word(full_label, 3),
+genus_species = paste(genus, species)
+)
+head(mapping_df)
+setdiff(tree_COI_a$tip.label, mapping_df$accession)
+tree_COI_a$tip.label <- mapping_df$genus_species[
+match(tree_COI_a$tip.label, mapping_df$accession)
+]
+
+
+# First I have to call the fasta file 
+
+```{r}
+COI_label3 <- read.FASTA("COI_outgroup.pterois")
+```
+
+# confirm
+```{r}
+head(COI_label3)
+```
+
+create a seperate vector? to keep everything straight since I'm going to be calling and mutating next
+```{r}
+fasta_names3 <- names(COI_label3)
+```
+
+# mutate and call the genus and species name to the acecssion #
+
+```{r}
+
+mapping_df <- data.frame(
+full_label = fasta_names3
+) %>%
+mutate(
+accession = word(full_label, 1),
+genus = word(full_label, 2),
+species = word(full_label, 3),
+genus_species = paste(genus, species)
+)
+head(mapping_df)
+setdiff(coi_pterois$tip.label, mapping_df$accession)
+coi_pterois$tip.label <- mapping_df$genus_species[
+match(coi_pterois$tip.label, mapping_df$accession)
+]
+```
+# plot the tree again and see if the tips changed
+
+```{r}
+plot(coi_pterois,
+      cex = .4,
+     no.margin=TRUE)
+```
+# get the exact name of the outgroup
+calling it COI_label3 because other files already have the COI_label as the name of the fasta file ugh and I don't know if it will confilct later
+```{r}
+View(COI_label3)
+
+```
+
+# force outgroup
+root(phy, ...)
+S3 method for class 'phylo'
+root(phy, outgroup, node = NULL, resolve.root = FALSE,
+     interactive = FALSE, edgelabel = FALSE, ...)
+S3 method for class 'multiPhylo'
+root(phy, outgroup, ...)
+
+```{r}
+coi_pterois1 <-root(phy = coi_pterois,"Pterois miles", node = NULL, resolve.root = FALSE)
+```
+
+code to modify the tree
+ expand branche with ladder, and align lables
+tree_COI_a <- ladderize(tree_COI_a)
+par(mar = c(1, 1, 1, 1))
+plot(tree_COI_a,
+align.tip.label = TRUE,
+cex = 0.8,
+no.margin = TRUE)
+# Make it easier to read
+
+```{r}
+#coi_pterois1.1 <- ladderize(coi_pterois) # I did run this so it exists but I think I will use the non ladder option
+par(mar = c(1,1,1,1))
+plot(coi_pterois1,
+     
+     cex = .4,
+     no.margin=TRUE)
+```
+
+# pterois miles was not a good outgroup , so I # the code to make a ladder and allowed for 
+
+okay either way I want to save these files as .nwk 
+
+How to save a nwk file generative AI
+Replace 'my_tree_object' with the name of your tree variable 
+Replace 'filename.nwk' with your desired file name and path
+write.tree(my_tree_object, file = "filename.nwk")
+
+```{r}
+write.tree(coi_pterois, file = "coi_pterois.nwk")
+```
+# tree iwth pmiles as outgroup
+```{r}
+write.tree(coi_pterois1, file="coi_pterois1.nwk")
+```
+
+# these both should have saved to the current directory
+
