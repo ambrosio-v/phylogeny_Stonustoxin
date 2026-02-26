@@ -256,7 +256,8 @@ label_sntx_1_ital \<- label_sntx_1_clean %\>% mutate( italic_label = paste0(ital
   # this tree is still good
 plot(tree_sntx_1)
 # remove the number and the reversed using this str(label_sntx_1_clean)
-# I think I can use the code from before with accession to genus species
+# I think I can use the code from before with accession to genus species trying it in next chunck
+
 ```
 
 check
@@ -264,6 +265,20 @@ check
 str(label_sntx_1_ital) no longer using label_sntx_1_ital
 
 ```{r}
+clean_names <- names(label_sntx_1_ital)
+# check
+head(clean_names)
+mapping_df_clean <- data.frame(
+cleaned = clean_names
+) 
+head(mapping_df_clean)
+# the observations are 123 and the column cleaned is original, cleaned italic_label I might need to rotate it and I don't have time tofigure that out
+
+
+#setdiff(coi_pterois$tip.label, mapping_df$accession)
+#coi_pterois$tip.label <- mapping_df$genus_species[
+#match(coi_pterois$tip.label, mapping_df$accession)
+#]
 
 ```
 
@@ -291,6 +306,8 @@ library(ggtree)
 
 Be carefull rotate is now masked in ape remove ggtree later
 
-```{r}
+# Going back to trying to export venom tree
 
+```{r}
+write.tree(tree_sntx_1, file ="tree_sntx_1.tree.file")
 ```
