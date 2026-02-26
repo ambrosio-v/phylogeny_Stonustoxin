@@ -143,3 +143,154 @@ plot(tree_COI_midpoint)
 I don't like it
 
 ## Change the out group
+
+check the tip labels
+
+```{r}
+tree_coi_1$tip.label
+```
+
+okay i'm seeing a problem the NA is probably Acanthopargus, i'ma try to root it there and then change the name
+
+```{r}
+library(phylotools)
+tree_coi_1_sebum <- root.phylo(phy = tree_coi_1,
+                          outgroup = "Sebastes umbrosus",
+                            resolve.root = TRUE)
+par(mar = c(1, 1, 1, 1))
+
+plot(tree_coi_1_sebum,
+     edge.width = 2,
+     cex = 0.5,
+     no.margin = TRUE)
+
+
+
+tree_coi_1_sebum_lad <- ladderize(tree_coi_1_sebum)
+
+par(mar = c(1, 1, 1, 1))
+    
+plot(tree_coi_1_sebum_lad,
+     edge.width = 2,
+     cex = 0.5,
+     no.margin = TRUE)
+
+
+```
+
+Remove a branch
+
+tree_coi_2 is gonna be same as tree coi 1 but with a species removed
+
+view tip labels
+
+```{r}
+tree_coi_1$tip.label
+# check other columns
+str(tree_coi_1)
+tree_coi_1$edge.length
+tree_coi_1$Nnode
+```
+
+```{r}
+tree_coi_2 <- drop.tip(tree_coi_1, "NA")
+plot(tree_pruned)
+```
+
+# FIX up sntx tree
+
+The problem with the COI partial tree might have to do with that there are so few, I am going to try to load the full tree rename thoes tips and make it print ready. The problem with the partial is that one of the branches is so distantly related that its scrunching the rest of the graph
+
+```{r}
+plot(tree_sntx_1)
+```
+
+view tip labels
+
+```{r}
+tree_sntx_1$tip.label
+```
+
+## Clean up tip labels
+
+remove the number and the reversed
+
+capitalize the genus and italicize everything
+
+label_sntx_1_clean is going to be this cleaned up version
+
+```{r}
+label_sntx_1_clean <- data.frame(original = tree_sntx_1$tip.label) %>%
+  mutate(
+    # remove _reversed_ and any variation of it
+    cleaned = str_remove(original, "_+reversed_?$"),
+    
+    # remove trailing underscore + number
+    cleaned = str_remove(cleaned, "_\\d+$"),
+    
+    # replace underscores with spaces
+    cleaned = str_replace_all(cleaned, "_", " "),
+    
+    # fix capitalization: Genus species
+    cleaned = str_to_lower(cleaned),
+    cleaned = str_to_sentence(cleaned)
+  )
+# Check
+str(label_sntx_1_clean)
+```
+
+No way, I cant believe it worked on the first try
+
+label_sntx_2_ital is going to be italiziced
+
+creates an italic column
+
+I couldn't make it italicized here is some code I played with
+
+label_sntx_1_clean\$cleaned \# this vector exists and it has what I'm referring to
+
+label_sntx_2_ital \<-data.frame( cleaned = label_sntx_1_clean\$cleaned) %\>% \# make a new tibble? and mutate the vector "cleaned" to italiciced mutate( cleaned = word(cleaned, "") )\
+label_sntx_1_ital \<- label_sntx_1_clean %\>% mutate( italic_label = paste0(italic('", cleaned, "'))
+
+```{r}
+  # this tree is still good
+plot(tree_sntx_1)
+# remove the number and the reversed using this str(label_sntx_1_clean)
+# I think I can use the code from before with accession to genus species
+```
+
+check
+
+str(label_sntx_1_ital) no longer using label_sntx_1_ital
+
+```{r}
+
+```
+
+Replace Tree Tip Label
+
+```{r}
+tree_sntx_1$tip.label <- label_sntx_1_ital$italic_label
+
+
+plot(tree_sntx_1, cex = 0.5)
+```
+
+This didn't work trying something else
+
+trying to italicize with ggplot, using the original tree
+
+```         
+tree_sntx_3_ital <- data.frame(letter = c('a', 'b', 'c'), number = c(1, 2, 3)) kable(df2) %>%   kable_styling() %>%   column_spec(1, italic = TRUE) # Formats the first column as italic
+```
+
+```{r}
+library(ggtree)
+
+```
+
+Be carefull rotate is now masked in ape remove ggtree later
+
+```{r}
+
+```
