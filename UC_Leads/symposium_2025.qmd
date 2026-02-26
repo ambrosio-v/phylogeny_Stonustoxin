@@ -18,14 +18,128 @@ library(ape)
 library(dplyr)
 library(stringr)
 library(phytools)
+library(maps)
 
 ```
 
-You can add options to executable code like this
+Check directory
 
 ```{r}
-#| echo: false
-2 * 2
+dir()
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+I moved all my files to the directory then submitted directory again to confirm
+
+## Import data sets and assign names
+
+```{r}
+tree_coi_1 <- read.tree("COI_partial.fasta.treefile") # tree maximum likelyhood iqtree. This COI tree only has the species in the venom file
+plot(tree_coi_1)
+tree_sntx_1 <- read.tree("venom_w_gaps_2.fasta.treefile") # tree maximum likelyhood iqtree
+plot(tree_sntx_1)
+
+```
+
+## Load labels 
+
+Apparently I gotta use the original FASTA files, which I was hesitant to do because I kept getting warnings that they were very big
+
+```{r}
+#label_coi_1 <- read.FASTA("COI_partial.fasta.log") # This COI tree noly has the species in the venom file
+# returned nul, next view the first 6 rows of the fasta to see what they have
+#View("COI_partial.fasta.log") its not a vector 
+label_sntx_1 <- read.FASTA("venom_w_gaps_2.fasta")
+label_coi_1 <- read.FASTA("COI_partial.fasta") # This COI tree noly has the species in the venom file
+
+```
+
+Check the labels
+
+```{r}
+head(label_coi_1)
+head(label_sntx_1)
+```
+
+## Now to change tips
+
+However I only need to change the COI tips
+
+```{r}
+fasta_obj.coi <- read.FASTA("COI_partial.fasta") # Im not really sure how this step is differnt but I've done a lot of over writing because I didn't want to make an new name for a data frame I'm gonna manipulate so Im just gonna do it
+head(fasta_obj.coi)
+
+
+```
+
+Extract the names
+
+```{r}
+fasta_desc.coi <- names(fasta_obj.coi)
+head(fasta_desc.coi)
+```
+
+Make a tibble that extracts the genus and species then pastes them together
+
+```{r}
+mapping_df.coi <- data.frame(
+  full_label = fasta_desc.coi) %>% 
+  mutate(
+    accession = word(full_label, 1),
+    genus = word(full_label,2),
+    species = word(full_label, 3),
+    genus_species = paste(genus,species)
+)
+
+```
+
+```{r}
+# check data frame 
+head(mapping_df.coi) # its empty 
+```
+
+## confirm structure
+
+```{r}
+str(mapping_df.coi)
+```
+
+## check tree tips
+
+```{r}
+head(tree_coi_1$tip.label)
+```
+
+## remove \_1 so the tip.label matches the accession \# not sure though becuase both files have the \_1
+
+```{r}
+mapping_df.coi$accession <- str_remove(mapping_df.coi$accession, "_.*$")
+```
+
+## Replace tip labels
+
+```{r}
+tree_coi_1$tip.label <- mapping_df.coi$genus_species[
+  match(tree_coi_1$tip.label, mapping_df.coi$accession)
+]
+```
+
+## check tree
+
+```{r}
+plot(tree_coi_1)
+```
+
+## conclusion
+
+it worked, but now I need to add the other species that are in the venom file. The outgroup is so different its causing scrunching. so I need to midpoint the tree
+
+```{r}
+library(phangorn)
+tree_COI_midpoint <- midpoint.root(tree_coi_1)
+plot(tree_COI_midpoint)
+
+```
+
+I don't like it
+
+## Change the out group
