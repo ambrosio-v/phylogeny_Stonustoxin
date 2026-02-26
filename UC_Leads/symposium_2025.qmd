@@ -11,8 +11,14 @@ Hopefully this is the last place I am writing code. Keep it clean
 
 ## Load libraries
 
+Watch the warnings in case you need those objects later
+
 ```{r}
-1 + 1
+library(ape)
+library(dplyr)
+library(stringr)
+library(phytools)
+
 ```
 
 You can add options to executable code like this
