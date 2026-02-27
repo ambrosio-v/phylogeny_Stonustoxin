@@ -1,6 +1,6 @@
 #NEXUS
 begin taxa;
-	dimensions ntax=94;
+	dimensions ntax=96;
 	taxlabels
 	Acanthopagrus_latus_1
 	Acanthopagrus_latus_2
@@ -19,6 +19,7 @@ begin taxa;
 	Synanceia_verrucosa_5
 	Synanceia_verrucosa_6
 	Synanceia_verrucosa_7
+	'file ="tree_coi_C6.tree"'
 	sebastes_alutus_1
 	sebastes_alutus_2__reversed_
 	sebastes_alutus_3__reversed_
@@ -96,11 +97,13 @@ begin taxa;
 	sebastes_serriceps_3__reversed_
 	sebastes_serriceps_4
 	sebastes_serriceps_7__reversed_
+	tree_coi_C6
 ;
 end;
 
 begin trees;
 	tree tree_1 = [&R] (Synanceia_verrucosa_3:0.032941,((((((((sebastes_ensifer_1__reversed_:4.83E-4,(sebastes_chlorosticus_4:0.001946,(((Sebastes_umbrosus_7:0.006226,((sebastes_aurora_3_reversed_:6.86E-4,sebastes_caurinus_1:0.001742):0.002935,sebastes_dallii_2:0.001672):0.001106):9.91E-4,(((sebastes_baramenuke_1:0.001944,sebastes_melanosticus_3:0.001944):4.77E-4,sebastes_elongatus_1__reversed_:0.003905):5.94E-4,sebastes_nebulosus_2__reversed_:0.001974):0.001233):1.47E-4,(sebastes_alutus_3__reversed_:0.002857,(sebastes_crameri_3__reversed_:1.0E-6,sebastes_reedi_3__reversed_:0.004457):0.001124):0.004375):0.005101):0.00151):4.71E-4,sebastes_oculatus_1__reversed_:5.13E-4):0.028704,(sebastes_dallii_4__reversed_:0.002858,(((((((Sebastes_umbrosus_5:0.006933,sebastes_oculatus_3:5.42E-4):0.003356,sebastes_serriceps_3__reversed_:0.00635):0.001799,sebastes_reedi_1:0.00257):0.00294,sebastes_diploproa_2__reversed_:0.005218):0.002555,sebastes_melanosticus_5__reversed_:9.9E-4):9.37E-4,sebastes_baramenuke_3__reversed_:0.002016):0.003916,sebastes_nebulosus_3:4.78E-4):0.007426):0.01239):0.03041,(sebastes_babcocki_1:0.004571,((((sebastes_alutus_2__reversed_:0.001937,(sebastes_crameri_2__reversed_:9.52E-4,(sebastes_reedi_2__reversed_:1.0E-6,sebastes_reedi_5__reversed_:1.0E-6):0.003392):0.001422):0.003334,((((sebastes_aurora_2__reversed_:0.00383,(sebastes_nebulosus_1__reversed_:0.002004,sebastes_dallii_3:0.005782):9.56E-4):0.002008,sebastes_carnatus_2__reversed_:0.001451):0.00145,((sebastes_melanosticus_4:0.002057,sebastes_elongatus_2__reversed_:0.002318):9.7E-4,sebastes_entomelas_5:0.003762):0.00108):3.0E-6,sebastes_baramenuke_2:9.66E-4):4.8E-4):0.001407,((Sebastes_umbrosus_6:0.003992,(sebastes_chlorosticus_5:0.002428,sebastes_oculatus_2__reversed_:0.003417):0.001441):3.0E-6,sebastes_constellatus_3__reversed_:0.001937):9.76E-4):9.05E-4,(sebastes_diploproa_1:0.003364,sebastes_serriceps_4:0.004401):9.9E-4):0.009496):0.023946):0.038732,((Synanceia_verrucosa_2:0.071224,Synanceia_verrucosa_5:0.029881):0.021948,Synanceia_verrucosa_1:0.035033):0.103346):0.252847,((((((((sebastes_chlorosticus_1:0.008277,sebastes_oculatus_5__reversed_:0.002115):0.001644,sebastes_ensifer_3__reversed_:0.011351):0.022845,((sebastes_alutus_4:0.034561,sebastes_serriceps_7__reversed_:0.049377):0.009814,(sebastes_nebulosus_6:0.027078,sebastes_melantosticus_6:0.045419):0.004578):0.003671):0.005802,Sebastes_umbrosus_1:0.041485):0.009826,(sebastes_caurinus_3:0.030324,((Sebastes_umbrosus_2:0.013604,sebastes_nebulosus_5:0.008718):0.006412,sebastes_dallii_6:0.010598):0.025663):0.004436):0.013999,(sebastes_caurinus_2:0.015963,((sebastes_dallii_1:0.02241,((sebastes_diploproa_4__reversed_:0.007204,sebastes_serriceps_1__reversed_:0.015059):0.004131,sebastes_melanosticus_1:0.005443):0.012174):0.00835,sebastes_chlorosticus_2:0.023099):0.009735):0.017292):0.063706,Synanceia_verrucosa_7:0.177225):0.073478,(((sebastes_reedi_6_reversed_:0.021033,sebastes_entomelas_6:0.016929):0.005161,((Sebastes_umbrosus_8:0.019323,sebastes_oculatus_6:0.020703):0.025652,sebastes_dallii_5:0.047957):0.009492):0.135537,(Acanthopagrus_latus_2:0.157609,Acanthopagrus_latus_1:0.07258)[&!rotate=true]:0.148265)[&!rotate=true]:0.040331)[&!rotate=false]:0.117982):0.23288,(((((sebastes_alutus_1:0.004398,(((sebastes_diploproa_3:0.002945,sebastes_elongatus_3__reversed_:0.003936):0.001931,sebastes_melanosticus_2__reversed_:0.002923):2.0E-6,(sebastes_reedi_4__reversed_:9.61E-4,sebastes_oculatus_4__reversed_:0.003902):0.004973):4.84E-4):5.25E-4,((sebastes_chlorosticus_3__reversed_:0.007119,sebastes_constellatus_2:0.001532):0.004609,(Sebastes_umbrosus_3:0.00549,((sebastes_carnatus_1__reversed_:9.54E-4,sebastes_aurora_1:9.89E-4):9.76E-4,sebastes_nebulosus_4:9.81E-4):9.81E-4):5.16E-4):0.001404):9.32E-4,sebastes_serriceps_2:0.002446):0.001448,((sebastes_baramenuke_4__reversed_:0.005427,sebastes_entomelas_7:4.36E-4):0.02385,sebastes_entomelas_3:2.0E-6):0.001927):0.012629,((Sebastes_umbrosus_4:0.003323,sebastes_ensifer_2__reversed_:0.002151):0.002412,(sebastes_babcocki_2:0.003417,sebastes_crameri_1__reversed_:0.003911):0.00151):0.01461):0.059603):0.138898,Synanceia_verrucosa_6:0.041077):0.023858,Synanceia_verrucosa_4:0.035507);
+	tree tree_2 = [&R] (tree_coi_C6:1.0,'file ="tree_coi_C6.tree"':1.0);
 end;
 
 begin figtree;

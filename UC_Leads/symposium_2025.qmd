@@ -40,7 +40,7 @@ plot(tree_sntx_1)
 
 ```
 
-## Load labels 
+## Load labels
 
 Apparently I gotta use the original FASTA files, which I was hesitant to do because I kept getting warnings that they were very big
 
@@ -329,10 +329,10 @@ head(label_coi_6A)
 str(label_coi_6A) # check were good
 ```
 
-# create a tibble with the correct names by extracting and mutating 
+# create a tibble with the correct names by extracting and mutating
 
 ```{r}
-fasta_obj.coi6A <- read.FASTA("COI_complete.fasta") # Im not really sure how this step is differnt but I've done a lot of over writing because I didn't want to make an new name for a data frame I'm gonna manipulate so Im just gonna do it
+fasta_obj.coi6A <- read.FASTA("COI_complete_.fasta") # Im not really sure how this step is differnt but I've done a lot of over writing because I didn't want to make an new name for a data frame I'm gonna manipulate so Im just gonna do it
 head(fasta_obj.coi6A)
 ```
 
@@ -375,23 +375,45 @@ fasta_obj.coi \<- read.FASTA("COI_partial.fasta") \# Im not really sure how this
 write.tree(tree_coi_A6, file ="tree_coi_A6.tree")
 ```
 
+# Import tree file 
+
 it didn't like that I have multiple of the same name
 
 ```{r}
 # Collapse any single nodes in the tree
-single_collapsed_tree <- collapse.singles(tree_coi_A6)
-write.tree(tree_coi_A6, file ="single_collapsed_tree.tree")
+#single_collapsed_tree <- collapse.singles(tree_coi_A6)
+#write.tree(tree_coi_A6, file ="single_collapsed_tree.tree")
 ```
 
 This didn't work there are multiple of the same not together
 
+# Import the tree file
+
+```{r}
+
+```
+
 i think
 
 ```{r}
+# Make duplicated labels unique by adding _1, _2, etc.
+tree_coi_
+$tip.label <- make.unique(tree_coi_C6$tip.label)
+
+# Confirm no duplicates remain
+any(duplicated(tree_coi_C6$tip.label))
+
+# Write tree
+write.tree(tree_coi_C6, file = "tree_coi_C6.tree")
+```
+
 # only keep one of each name
-tips_to_keep <- unique(tree_coi_A6$tip.label)
-tips_to_drop <- setdiff(tree_coi_A6$tip.label, tips_to_keep)
-write.tree(tree_coi_A6, file ="tree_coi_A6_single.tree")
+
+tips_to_keep \<- unique(tree_coi_A6$tip.label)
+tips_to_drop <- setdiff(tree_coi_A6$tip.label, tips_to_keep) write.tree(tree_coi_A6, file ="tree_coi_A6_single.tree")
+
+```{r}
+
 ```
 
 look at labels
@@ -424,14 +446,13 @@ head(fasta_obj.coi_C6)
 ```
 
 ```{r}
-{r}
 fasta_names_C6 <- names(fasta_obj.coi_C6)
 head(fasta_names_C6)
 ```
 
 ```{r}
 mapping_df.coi_C6 <- data.frame(
-  full_label = fasta_desc.coi6A) %>% 
+  full_label = fasta_names_C6) %>% 
   mutate(
     accession = word(full_label, 1),
     genus = word(full_label,2),
@@ -445,7 +466,7 @@ str(mapping_df.coi_C6)
 ```
 
 ```{r}
-head(tree_coi_1$tip.label)
+#head(tree_coi_1$tip.label)
 ```
 
 ```{r}
@@ -477,6 +498,17 @@ plot(tree_coi_C6,
 
 ```{r}
 write.tree(tree_coi_C6, file ="tree_coi_C6.tree")
+```
+
+```{r}
+# Make duplicated labels unique by adding _1, _2, etc.
+tree_coi_C6$tip.label <- make.unique(tree_coi_C6$tip.label)
+
+# Confirm no duplicates remain
+any(duplicated(tree_coi_C6$tip.label))
+
+# Write tree
+write.tree(tree_coi_C6, file = "tree_coi_C6.tree")
 ```
 
 print
@@ -528,4 +560,11 @@ pdf("C:/witteLab/phylogeny_Stonustoxin/UC_Leads/tree_coi_C67.pdf", width = 14, h
 
 ```{r}
 write.tree(tree_coi_C67, file ="tree_coi_C67.tree.file")
+```
+
+# Complete_singlecopy
+
+```{r}
+tree_coi_D6 <- read.tree("COI_complete_singlecopy.treefile") # tree maximum likelyhood iqtree. This COI tree only has the species in the venom file
+plot(tree_coi_D6)
 ```
