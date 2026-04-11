@@ -375,7 +375,7 @@ fasta_obj.coi \<- read.FASTA("COI_partial.fasta") \# Im not really sure how this
 write.tree(tree_coi_A6, file ="tree_coi_A6.tree")
 ```
 
-# Import tree file 
+# Import tree file
 
 it didn't like that I have multiple of the same name
 
