@@ -1,0 +1,155 @@
+---
+title: "MSA_rockfish"
+format: html
+author: "Eric Witte"
+date: "2025-09-15"
+editor: visual
+---
+
+  
+
+# ------------------------------
+# Build phylogeny with msa plot and highlight residues
+# ------------------------------
+
+library(ggtree)
+library(treeio)
+library(ggmsa)       # for msaplot + residue extraction
+library(ggplot2)
+library(ape)
+library(Biostrings)
+library(grid)
+
+
+# --- Inputs
+TREE_FILE <- "sebastes_tox_526.fasta.treefile"
+
+seq_file <- "sebastes_tox_526.csv"
+
+residues_to_extract <- c(46, 54, 62, 133, 136, 140, 141, 144, 149, 162, 226, 239, 257, 301, 332, 377, 383, 426, 502, 539, 207, 235, 268, 351, 510, 520, 546, 573, 64, 66, 68, 228, 230, 232)  # <-- sites of interest
+
+constraint <- c('Sebastes_umbrosus_4', 'Sebastes_umbrosus_3', 'Pterois_miles_3', 'Pterois_miles_2', 'Pterois_miles_1', 'Synanceia_verrucosa_6', 'Synanceia_verrucosa_4', 'Synanceia_verrucosa_3', 'Hypodytes_rubripinnis_4', 'Hypodytes_rubripinnis_2', 'Siniperca_chuatsi_6', 'Siniperca_chuatsi_4', 'Enoplosus_armatus_3', 'Scatophagus_argus_3', 'Chaetodon_trifascialis_1', 'Holacanthus_passer_1', 'Centropyge_bicolor_1', 'Zanclus_cornutus_1', 'Naso_brevirostris_1', 'Siganus_fuscescens_3', 'Siganus_canaliculatus_2', 'Sebastes_umbrosus_6', 'Sebastes_umbrosus_7', 'Sebastes_umbrosus_5', 'Pterois_miles_5', 'Pterois_miles_6', 'Pterois_miles_4', 'Synanceia_verrucosa_5', 'Synanceia_verrucosa_2', 'Synanceia_verrucosa_1', 'Hypodytes_rubripinnis_3', 'Hypodytes_rubripinnis_1', 'Siniperca_chuatsi_5', 'Siniperca_chuatsi_3', 'Enoplosus_armatus_2', 'Chaetodon_trifascialis_2', 'Holacanthus_passer_2', 'Centropyge_bicolor_2', 'Zanclus_cornutus_2', 'Acanthurus_lineatus_1', 'Scatophagus_argus_4', 'Siganus_fuscescens_2', 'Siganus_fuscescens_1', 'Siganus_canaliculatus_1')
+
+
+# --- Load tree
+tree_msa <- ape::read.tree(TREE_FILE)
+
+# --- Build ggtree object (rotated tree, not ladderized)
+
+tree_250 <- ape::root(tree_msa, node = 250)
+
+tree_order <- ape::rotateConstr(tree_250, constraint = constraint)
+
+p <- ggtree(tree_order, ladderize = FALSE)
+
+highlight_nodes   <- c(196, 218)       # nodes to highlight
+highlight_labels  <- c("Clade 2", "Clade 3")  # labels to show (these will be placed top-left of box)
+highlight_fill    <- c("#66FF66", "#FFFF66")  # yellow, green (vivid)
+
+p1 <- p +
+  geom_hilight(node = highlight_nodes[1], fill = highlight_fill[1], alpha = 0.3) +
+  geom_hilight(node = highlight_nodes[2], fill = highlight_fill[2], alpha = 0.3) +
+  theme_tree2() +
+  theme(
+    axis.line.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+# --- Load aa seqs
+
+ven_dat<- read.csv(file = "data/8925_nuc1.translated.csv", sep = ",")
+
+head(ven_dat)
+
+ven_dat<- as.matrix(ven_dat)
+dim(ven_dat)
+
+ven_dat_df <- as.data.frame(ven_dat)
+
+res <- extract_residue_matrix(data = ven_dat_df, positions = residues_to_extract)
+
+dim(res)
+
+# Get order based on numeric suffix
+num_order <- order(as.numeric(sub("Pos", "", colnames(res))))
+
+# Reorder dataframe columns
+res_sorted <- res[, num_order]
+
+# Check
+colnames(res_sorted)
+
+#Write FASTA
+res_seqs <- apply(res_sorted, 1, paste0, collapse = "")
+
+# Convert to AAStringSet (or DNAStringSet)
+res_fasta <- AAStringSet(res_seqs)
+names(res_fasta) <- rownames(res_sorted)
+
+# Write FASTA file
+writeXStringSet(res_fasta, filepath = "data/fixed_res_alignment.fasta")
+
+# --- Run msa plot with sliding window (optional)
+# here window just anchors the plot, you can adjust
+msa_plot <- msaplot(
+  p = p1,
+  fasta = "data/fixed_res_alignment.fasta"
+)
+
+
+aln <- readAAStringSet("data/fixed_res_alignment.fasta")
+aln_mat <- as.matrix(aln)   # rows = sequences, cols = positions (1–34)
+
+add_gaps <- function(mat, gaps) {
+  # gaps is a list of positions after which to insert a gap column
+  for (g in sort(gaps, decreasing = TRUE)) {
+    empty_col <- rep("-", nrow(mat))  # use "-" or NA for gaps
+    mat <- cbind(mat[, 1:g, drop = FALSE], empty_col, mat[, (g+1):ncol(mat), drop = FALSE])
+  }
+  mat
+}
+
+# Insert gaps AFTER col 6 and AFTER col 18
+aln_mat_gapped <- add_gaps(aln_mat, c(3, 6, 15, 18))
+
+gapped_seqs <- apply(aln_mat_gapped, 1, paste0, collapse = "")
+
+# Convert to AAStringSet (or DNAStringSet)
+gapped_fasta <- AAStringSet(gapped_seqs)
+names(gapped_fasta) <- rownames(aln_mat_gapped)
+
+# Write FASTA file
+writeXStringSet(gapped_fasta, filepath = "data/add_gaps_alignment.fasta")
+
+
+msa_plot_gapped <- msaplot(
+  p = p1,
+  fasta = "data/add_gaps_alignment.fasta"
+)
+
+
+
+
+
+library(dplyr)
+library(tidyr)
+
+# Convert your matrix to a dataframe
+res_df <- as.data.frame(res, stringsAsFactors = FALSE)
+
+# Vector of sites to summarize
+sites <- c("Pos64", "Pos66", "Pos68", "Pos228", "Pos230", "Pos232")
+
+summary_res <- res_df %>%
+  select(all_of(sites)) %>%
+  pivot_longer(cols = everything(), names_to = "Site", values_to = "Value") %>%
+  count(Site, Value) %>%
+  group_by(Site) %>%
+  mutate(Percent = 100 * n / sum(n)) %>%
+  arrange(Site, desc(n)) %>%
+  ungroup()
+
+print(summary_res)
+
+
