@@ -4,21 +4,31 @@ author: "Eric Witte"
 date: "2025-09-15"
 output: html_document
 ---
+  
+  if (!requireNamespace("devtools", quietly=TRUE))
+    install.packages("devtools")
+devtools::install_github("YuLab-SMU/ggmsa")
   # ------------------------------
 # Build phylogeny with msa plot and highlight residues
 # ------------------------------
-install.packages("ggtreebar")
-if (!requireNamespace("BiocManager", quietly=TRUE))
-  install.packages("BiocManager")
+#install.packages("ggtreebar")
+#if (!requireNamespace("BiocManager", quietly=TRUE))
+#  install.packages("BiocManager")
 ## BiocManager::install("BiocUpgrade") ## you may need this
-BiocManager::install("ggmsa")
-library(ggtreebar)
+
+# you'll want to see the vignettes, trust me
+#install.packages("ggplot2")
+
+#install.packages("ggalt")
+#BiocManager::install("ggmsa")
+library(ggtree)
 library(treeio)
 library(ggmsa)       # for msaplot + residue extraction
 library(ggplot2)
 library(ape)
 library(Biostrings)
 library(grid)
+
 
 # --- Inputs
 TREE_FILE <- "data/rooted26925.nwk"
